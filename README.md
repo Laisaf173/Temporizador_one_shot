@@ -14,3 +14,5 @@ Quando o botão é pressionado, os três LEDs acendem ao mesmo tempo. A cada **3
 - LED Verde desliga por último.
 
 O botão só pode ser pressionado novamente após todos os LEDs serem desligados. Um sistema de debounce evita leituras erradas do botão.
+
+Vídeo do resultado final na placa física: https://drive.google.com/file/d/12PHPDY_l2NIGOnF3P9CO98lgZHkA9i-J/view?usp=sharing
