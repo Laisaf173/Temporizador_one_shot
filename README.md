@@ -9,8 +9,8 @@ O código foi testado utilizando o simulador Wokwi e a ferramenta educacional Bi
 ## Funcionamento
 Quando o botão é pressionado, os três LEDs acendem ao mesmo tempo. A cada **3 segundos**, um LED é desligado na seguinte ordem:
 
-- LED Vermelho desliga primeiro.
-- LED Amarelo desliga em seguida.
+- LED Azul desliga primeiro.
+- LED Vermelho desliga em seguida.
 - LED Verde desliga por último.
 
 O botão só pode ser pressionado novamente após todos os LEDs serem desligados. Um sistema de debounce evita leituras erradas do botão.
