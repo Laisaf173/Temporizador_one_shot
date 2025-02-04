@@ -2,9 +2,9 @@
 #include "pico/stdlib.h"
 #include "hardware/timer.h"
 
-#define LED_VERMELHO 11
-#define LED_AMARELO 12
-#define LED_VERDE 13
+#define LED_VERMELHO 13
+#define LED_AZUL 12
+#define LED_VERDE 11
 #define BOTAO 5
 #define INTERVALO 3000
 #define TEMPO_DEBOUNCE_US 200000  
@@ -16,11 +16,11 @@ volatile uint32_t ultimo_tempo_botao = 0;  // Armazena o último tempo do botão
 // Callback para desligar LEDs em sequência
 int64_t turn_off_callback(alarm_id_t id, void *user_data) {
     if (estado_led == 0) {
-        gpio_put(LED_VERMELHO, 0);  // Desliga o vermelho
-        printf("LED Vermelho desligado\n");
+        gpio_put(LED_AZUL, 0);  // Desliga o vermelho
+        printf("LED Azul desligado\n");
     } else if (estado_led == 1) {
-        gpio_put(LED_AMARELO, 0); // Desliga o amarelo
-        printf("LED Amarelo desligado\n");
+        gpio_put(LED_VERMELHO, 0); // Desliga o amarelo
+        printf("LED Vermelho desligado\n");
     } else if (estado_led == 2) {
         gpio_put(LED_VERDE, 0); // Desliga o verde
         printf("LED Verde desligado\n");
@@ -44,7 +44,7 @@ void button_callback(uint gpio, uint32_t events) {
 
         // Acende todos os LEDs
         gpio_put(LED_VERMELHO, 1);
-        gpio_put(LED_AMARELO, 1);
+        gpio_put(LED_AZUL, 1);
         gpio_put(LED_VERDE, 1);
         printf("Botão pressionado! LEDs acesos.\n");
 
@@ -59,8 +59,8 @@ int main() {
     // Configura LEDs como saída
     gpio_init(LED_VERMELHO);
     gpio_set_dir(LED_VERMELHO, GPIO_OUT);
-    gpio_init(LED_AMARELO);
-    gpio_set_dir(LED_AMARELO, GPIO_OUT);
+    gpio_init(LED_AZUL);
+    gpio_set_dir(LED_AZUL, GPIO_OUT);
     gpio_init(LED_VERDE);
     gpio_set_dir(LED_VERDE, GPIO_OUT);
 
